@@ -8,7 +8,7 @@
 		<version>2.4.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
+	<groupId>com.rest</groupId>
 	<artifactId>webapi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>webapi</name>
@@ -53,6 +53,8 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>5.4.10.Final</version>
 		</dependency>
+
+
 	</dependencies>
 
 
