@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
-import employees from './employees.vue'
+
+Vue.config.productionTip = false
 
 new Vue({
-  el: '#employees',
-  render: h => h(employees)
-})
+  render: h => h(App),
+}).$mount('#app')
