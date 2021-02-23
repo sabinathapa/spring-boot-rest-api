@@ -1,5 +1,6 @@
 package com.rest.webapi.base;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface GenericDao<E,K> {
@@ -8,5 +9,6 @@ public interface GenericDao<E,K> {
      void update(E entity) ;
      void remove(E entity);
      E find(K key);
-     List<E> getAll() ;
+     List<E> getAll();
+     List<E> search(HashMap<String, String> searchFilter);
 }

@@ -1,15 +1,22 @@
 package com.rest.webapi.base;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @SuppressWarnings("unchecked")
 @Repository
@@ -62,5 +69,16 @@ public abstract class GenericDaoImpl<E, K extends Serializable>
     @Override
     public List<E> getAll() {
         return currentSession().createCriteria(daoType).list();
+    }
+
+    @Override
+    public List<E> search(HashMap<String,String> searchFilter){
+        CriteriaBuilder cb = currentSession().getCriteriaBuilder();
+        Criteria cr = currentSession().createCriteria(daoType);
+// Add restriction.
+        for (Map.Entry me : searchFilter.entrySet()) {
+            cr.add(Restrictions.eq(me.getKey().toString(), me.getValue()));
+        }
+        return cr.list();
     }
 }

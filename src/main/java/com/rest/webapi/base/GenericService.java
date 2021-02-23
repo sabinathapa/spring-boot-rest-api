@@ -1,5 +1,6 @@
 package com.rest.webapi.base;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface GenericService<E, K> {
@@ -10,4 +11,5 @@ public interface GenericService<E, K> {
  void update(E entity);
  void remove(E entity);
  void removeById(K id);
-        }
+ List<E> search(HashMap<String,String> filter);
+}

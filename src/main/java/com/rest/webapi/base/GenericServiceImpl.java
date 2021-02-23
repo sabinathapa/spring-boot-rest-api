@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
 @Service
 public abstract class GenericServiceImpl<E, K>
@@ -59,5 +60,12 @@ public abstract class GenericServiceImpl<E, K>
     public void removeById(K id) {
         E entity = genericDao.find(id);
         genericDao.remove(entity);
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED)
+    public List<E> search(HashMap<String,String> filter) {
+        return genericDao.search(filter);
+
     }
 }

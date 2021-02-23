@@ -16,42 +16,47 @@ public class User {
         this.email = email;
     }
 
-    public String getUsername() {
-        return username;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getPassword() {
-        return password;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
-    public Role getRole() {
-        return role;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public enum Role {USER, ADMIN, USER_MANAGER}
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String email;
-    private String username;
-    @JsonIgnore
-    private String password;
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    private Role role;
+    private String firstname;
+    private String lastname;
+    private String phone;
+    private String address;
 
 
 
