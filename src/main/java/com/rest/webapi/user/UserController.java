@@ -4,7 +4,7 @@ import com.rest.webapi.base.GenericController;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/api/users")
+@RequestMapping(value = "/users")
 public class UserController extends GenericController<User,Long> { }
 
 

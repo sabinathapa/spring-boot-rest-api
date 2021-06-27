@@ -66,6 +66,5 @@ public abstract class GenericServiceImpl<E, K>
     @Transactional(propagation = Propagation.REQUIRED)
     public List<E> search(HashMap<String,String> filter) {
         return genericDao.search(filter);
-
     }
 }

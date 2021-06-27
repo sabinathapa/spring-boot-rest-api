@@ -4,16 +4,19 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -74,11 +77,15 @@ public abstract class GenericDaoImpl<E, K extends Serializable>
     @Override
     public List<E> search(HashMap<String,String> searchFilter){
         CriteriaBuilder cb = currentSession().getCriteriaBuilder();
-        Criteria cr = currentSession().createCriteria(daoType);
-// Add restriction.
+        CriteriaQuery cr = cb.createQuery(daoType);
+        Root root = cr.from(daoType);
+        List<Predicate> perdicates = new ArrayList<>();
         for (Map.Entry me : searchFilter.entrySet()) {
-            cr.add(Restrictions.eq(me.getKey().toString(), me.getValue()));
+            perdicates.add(cb.equal(root.get(me.getKey().toString()), me.getValue()));
         }
-        return cr.list();
+        Predicate[] intArray = new Predicate[perdicates.size()];
+        cr.select(root).where(perdicates.toArray(intArray));
+        Query<E> query = currentSession().createQuery(cr);
+       return  query.getResultList();
     }
 }

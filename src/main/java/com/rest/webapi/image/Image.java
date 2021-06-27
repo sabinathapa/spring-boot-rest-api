@@ -1,18 +1,16 @@
 package com.rest.webapi.image;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 @Entity
 public class Image {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String path;
-    private String ownerId;
+    private String filename;
+    private String parentId;
+
 
     public Long getId() {
         return id;
@@ -22,27 +20,26 @@ public class Image {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFilename() {
+        return filename;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getParentId() {
+        return parentId;
     }
 
-    public String getPath() {
-        return path;
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setFilename(String filename) {
+        this.filename = filename;
     }
 
-    public String getOwnerId() {
-        return ownerId;
+    public Image(String filename, String parentId){
+        this.filename=filename;
+        this.parentId =parentId;
     }
 
-    public void setOwnerId(String ownerId) {
-        this.ownerId = ownerId;
-    }
+    public Image(){};
 }
