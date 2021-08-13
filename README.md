@@ -8,10 +8,13 @@ Plus Vue js project as a client.
 - MySql Workbench
 - IDE (Intellij) / VS Code for frontend
 - Tomcat Server
+- Postman
 
-# things to do to run the application in your local machine
+# things to do run this application in your local machine
+
+## Setup the application 
  
- ## Update Project properties file
+ ### Update Project properties file
  - Path src\main\resources
  - Update Local mysql database configuration to map with your database
     ```xml
@@ -24,3 +27,15 @@ Plus Vue js project as a client.
     ```xml
         hibernate.hbm2ddl.auto=create
     ```
+ 
+ ## Setup the User
+ - Create new user 
+ - Make a POST request to this url (Port can be different, depending upon your localhost setup)
+      http://localhost:8080/api/auth/register
+      Body
+      ```json
+        {
+           "username": "<username>",
+           "password": "<password>"
+        }
+      ```
