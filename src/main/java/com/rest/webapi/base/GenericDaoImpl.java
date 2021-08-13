@@ -23,7 +23,7 @@ import java.util.Map;
 
 @SuppressWarnings("unchecked")
 @Repository
-public abstract class GenericDaoImpl<E, K extends Serializable>
+public abstract class GenericDaoImpl<E extends BaseModel, K extends Serializable>
         implements GenericDao<E, K> {
 
     @Autowired

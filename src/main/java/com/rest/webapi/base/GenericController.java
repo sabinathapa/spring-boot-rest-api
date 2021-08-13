@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-public abstract class GenericController<T, K>{
+public abstract class GenericController<T extends BaseModel, K>{
 
     @Autowired
     private GenericService<T, K> genericService;

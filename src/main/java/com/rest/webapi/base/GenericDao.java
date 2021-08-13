@@ -3,7 +3,7 @@ package com.rest.webapi.base;
 import java.util.HashMap;
 import java.util.List;
 
-public interface GenericDao<E,K> {
+public interface GenericDao<E extends BaseModel,K> {
      void add(E entity) ;
      void saveOrUpdate(E entity) ;
      void update(E entity) ;

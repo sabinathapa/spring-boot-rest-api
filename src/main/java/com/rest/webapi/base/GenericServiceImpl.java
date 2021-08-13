@@ -1,5 +1,6 @@
 package com.rest.webapi.base;
 
+import com.fasterxml.jackson.databind.ser.Serializers;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -7,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.HashMap;
 import java.util.List;
 @Service
-public abstract class GenericServiceImpl<E, K>
+public abstract class GenericServiceImpl<E extends BaseModel, K>
         implements GenericService<E, K> {
 
     private GenericDao<E, K> genericDao;
