@@ -3,7 +3,7 @@ Simple REST API template Project using Spring Boot, Hibernate, Spring boot secur
 Plus Vue js project as a client.
   (we might change vue js client application with React(typeScript))
 
-# Prerequisities
+# prerequisites
 - MySQL Server / Database
 - MySql Workbench
 - IDE (Intellij) / VS Code for frontend
@@ -12,9 +12,9 @@ Plus Vue js project as a client.
 
 # things to do run this application in your local machine
 
-## Setup the application 
+## setup the application 
  
- ### Update Project properties file
+ ### update project properties file
  - Path src\main\resources
  - Update Local mysql database configuration to map with your database
     ```xml
@@ -28,7 +28,7 @@ Plus Vue js project as a client.
         hibernate.hbm2ddl.auto=create
     ```
  
- ## Setup the User
+ ## setup the User
  - Create new user 
  - Make a POST request to this url (Port can be different, depending upon your localhost setup)
       http://localhost:8080/api/auth/register
