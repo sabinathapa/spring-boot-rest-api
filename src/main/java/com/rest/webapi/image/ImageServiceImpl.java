@@ -2,25 +2,19 @@ package com.rest.webapi.image;
 
 import com.rest.webapi.base.GenericDao;
 import com.rest.webapi.base.GenericServiceImpl;
-
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.UUID;
 import java.util.stream.Stream;
 
