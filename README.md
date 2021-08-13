@@ -16,9 +16,9 @@ Plus Vue js project as a client.
  - Update Local mysql database configuration to map with your database
     ```xml
       datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-      datasource.url= jdbc:mysql://localhost/sabina
-      datasource.username= thpsabina
-      datasource.password= UrbiSabina254
+      datasource.url= jdbc:mysql://localhost/<your-database>
+      datasource.username= <database-username>
+      datasource.password= <database-password>
     ```
 - Update Hibernate configuration.
     ```xml
