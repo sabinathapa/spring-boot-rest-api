@@ -38,7 +38,7 @@ build/
 ###vue
 
 .DS_Store
-vue-client/node_modules
+client/node_modules
 dist
 
 

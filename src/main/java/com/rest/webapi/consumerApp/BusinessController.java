@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController("ConsumerAppBusinessController")
-@RequestMapping(value = "/business")
+@RequestMapping(value = "/v1/business")
 public class BusinessController extends GenericConsumerAppController<Business, Long> {
 
 }
